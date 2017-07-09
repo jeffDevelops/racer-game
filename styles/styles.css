@@ -36,3 +36,44 @@ body {
 	position: absolute;
 	display: none; 
 }
+
+@keyframes red_wins {
+	0% {
+		background: rgba(75, 75, 100, .2);
+	}
+	50% {
+		background: rgba(200, 30, 50, .2);
+	}
+	100% {
+		background: rgba(75, 75, 100, .2);
+	}
+}
+
+.red_wins {
+	animation-name: red_wins;
+	animation-duration: 2s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-timing-function: ease-in;
+}
+
+@keyframes blue_wins {
+	0% {
+		background: rgba(75, 75, 100, .2);
+	}
+	50% {
+		background: rgba(50, 30, 200, .2);
+	}
+	100% {
+		background: rgba(75, 75, 100, .2);
+	}
+}
+
+.blue_wins {
+	animation-name: blue_wins;
+	animation-duration: 2s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-timing-function: ease-in;
+}
+

@@ -4,14 +4,6 @@ $(document).ready(function() {
 		//width and height of the playing field, so we can position the 
 		//red and blue player accordingly.
 
-	var $playingField = {
-		xBoundaries: $('#game_screen').width(),
-		yBoundaries: $('#game_screen').height()
-	}; 
-
-	console.log('width: ' + $playingField.xBoundaries);
-	console.log('height: ' + $playingField.yBoundaries);
-
 
 		//The coordinates of the red player in pixels
 	var $red = {
@@ -35,6 +27,11 @@ $(document).ready(function() {
 
 	var winCoords = {};
 
+	//Set Intervals
+	var checkForWin; //Left undefined until we start checking for wins
+	var checkRedPosition;
+	var checkBluePosition;
+
 	var previousInit;
 
 /***********************************************************************/
@@ -44,23 +41,16 @@ $(document).ready(function() {
 
 		getRandomGameInit();
 		startGame();
+		if (checkForRedWin()) {
+			clearInterval(checkRedPosition);
+			clearInterval(checkBluePosition);
+		}
+		if (checkForBlueWin()) {
+			clearInterval(checkRedPosition);
+			clearInterval(checkBluePosition);
+		}
 
-		setInterval(function() {
-			var redX = $('#red').position().left;
-			var redY = $('#red').position().top;
-			console.log(redX + ', ' + redY);
-			if ((redX < winCoords.right && redX > winCoords.left) && (redY < winCoords.bottom && redY > winCoords.top)) {
-					alert("Red wins!");
-			}
-		}, 1);
 
-		setInterval(function() {
-			var blueX = $('#blue').position().left;
-			var blueY = $('#blue').position().top;
-			if ((blueX < winCoords.right && blueX > winCoords.left) && (blueY < winCoords.bottom && blueY > winCoords.top)) {
-				alert("Blue wins!");
-			}
-		}, 1);
 
 /***********************************************************************/
 /***********************************************************************/
@@ -201,7 +191,7 @@ $(document).ready(function() {
 			keysPressed[event.which] = false; 
 		});
 
-		setInterval(function() {
+		checkRedPosition = setInterval(function() {
 	    blue.css({
 	        left: function(index, oldValue) {
 	            return calculateNewBlueWidth(oldValue, 83, 70); //Runs new blue width function whenever the keycodes 83 or 70 are triggered
@@ -212,7 +202,7 @@ $(document).ready(function() {
 	    });
 		}, 1); //Update the position every millisecond
 
-		setInterval(function() {
+		checkBluePosition = setInterval(function() {
 	    red.css({
 	        left: function(index, oldValue) {
 	            return calculateNewRedWidth(oldValue, 37, 39);
@@ -224,9 +214,42 @@ $(document).ready(function() {
 		}, 1);  //Update the position every millisecond
 	}
 
-console.log('Target Top: ' + $('#target').css('top') + ' ' + 'Left: ' + $('#target').css('left'));
-console.log('Blue Top: ' + $('#blue').css('top') + ' ' + 'Left: ' + $('#blue').css('left'));
+	function checkForRedWin() {
+		checkForWin = setInterval(function() {
+			var redX = $('#red').position().left;
+			var redY = $('#red').position().top;
+			console.log(redX + ', ' + redY);
+			if ((redX < winCoords.right && redX > winCoords.left) && (redY < winCoords.bottom && redY > winCoords.top)) {
+				clearInterval(checkForWin);
+				$('#game_screen').addClass('red_wins');
+				setTimeout(function() {
+					$('#game_screen').removeClass('red_wins');
+					getRandomGameInit();
+					startGame();
+				}, 2000);
+				return true;
+			} else {
+				return false;
+			}
+		}, 1);
+	}
 
-	
-
+	function checkForBlueWin() {
+		checkForWin = setInterval(function() {
+			var blueX = $('#blue').position().left;
+			var blueY = $('#blue').position().top;
+			if ((blueX < winCoords.right && blueX > winCoords.left) && (blueY < winCoords.bottom && blueY > winCoords.top)) {
+				clearInterval(checkForWin);
+				$('#game_screen').addClass('blue_wins');
+				setTimeout(function() {
+					$('#game_screen').removeClass('blue_wins');
+					getRandomGameInit();
+					startGame();
+				}, 2000);
+				return true;
+			} else {
+				return false;
+			}
+		}, 1);
+	}
 });
