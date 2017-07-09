@@ -1,0 +1,38 @@
+html {
+	background-color: #111;
+	height: 100%;
+}
+
+body {
+	height: 100vh;
+	box-sizing: border-box;
+	background-image: url("../images/space.jpg");
+	background-size: cover;
+	border: 1px solid transparent;
+}
+
+#game_screen {
+	position: relative;
+	background: rgba(75, 75, 100, .2);
+	height: 500px;
+	width: 1200px;
+	margin: 15vh auto;
+	border-radius: 14px;
+}
+
+#blue {
+	position: absolute;
+ 	padding: 0 3px 3px 3px;
+ 	display: none;
+}
+
+#red {
+	position: absolute;
+	padding: 0 3px 3px 3px;
+	display: none;
+}
+
+#target {
+	position: absolute;
+	display: none; 
+}
