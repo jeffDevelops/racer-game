@@ -4,11 +4,15 @@ html {
 }
 
 body {
+	overflow: hidden;
 	height: 100vh;
 	box-sizing: border-box;
 	background-image: url("../images/space.jpg");
 	background-size: cover;
 	border: 1px solid transparent;
+	color: #F2C408;
+	font-family: 'Roboto Condensed';
+	font-size: 16px;
 }
 
 #game_screen {
@@ -76,4 +80,158 @@ body {
 	animation-direction: normal;
 	animation-timing-function: ease-in;
 }
+
+/* LANDING PAGE STYLES */
+
+@keyframes crawl {
+
+	0% {
+		-webkit-transform: rotateX(45deg) translateZ(0) scaleX(2.5);
+		transform: transform: rotateX(45deg) translateZ(0) scaleX(2);
+		top: 900px;
+		text-align: center;
+	}
+
+	100% {
+		-webkit-transform: rotateX(45deg) translateZ(-500px);
+		transform: rotateX(45deg) translateZ(-500px);
+		text-align: center;
+		top: -700px;
+	}
+
+}
+/* .perspective {
+	transform: perspective(700px) scaleZ(0.2) rotateX(0deg);
+	text-align: center;
+	-webkit-transition: transform 1s;
+	transition: transform 1s;
+} */
+
+.perspective_origin {
+	height: 800px;
+	width: 100%;
+	margin: 0 auto;
+	perspective: 1100px;
+	perspective-origin: 50% 100%;
+}
+
+.perspective {
+	position: relative;
+	height: 800px;
+	animation-name: crawl;
+	animation-duration: 8s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	animation-timing-function: linear;
+}
+
+.perspective h1 {
+	font-size: 6em;
+	font-weight: 700;
+	text-transform: uppercase;
+	display: block;
+	background: -webkit-linear-gradient(rgba(241, 198, 8, .3), rgba(241, 198, 8, .6));
+	background: linear-gradient(rgba(241, 198, 8, .3), rgba(241, 198, 8, .6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  fill-color: transparent;
+}
+
+.perspective p {
+	width: 50%;
+	margin: 0 auto;
+	background: -webkit-linear-gradient(rgba(241, 198, 8, .65), rgba(241, 198, 8, 1));
+	background: linear-gradient(rgba(241, 198, 8, .65), rgba(241, 198, 8, 1));
+	-webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  fill-color: transparent;
+	font-size: 3em;
+	text-transform: none;
+	text-align: justify;
+	font-weight: 700;
+	line-height: 1.4em;
+	letter-spacing: .05em;
+}
+
+#control_emul8rs {
+	width: 50%;
+	height: 200px;
+	margin: 100px auto;
+}
+
+#player1 {
+	width: 50%;
+	float: left;
+}
+
+#player2 {
+	width: 50%;
+	float: right;
+}
+
+.button {
+	width: 30%;
+	height: 60px;
+	border: 1px solid rgba(241, 198, 8, 1);
+	border-radius: 8px;
+}
+
+.button p {
+	padding: 20px;
+	color: rgba(241, 198, 8, 1);
+	text-align: center;
+	font-size: 1.5em;
+	font-weight: 400;
+}
+
+.top_button {
+	display: block;
+	margin: 2px auto;
+}
+
+.bottom_buttons {
+	display: inline-block;
+}
+
+a {
+	display: block;
+	width: 50%;
+	height: 150px;
+	margin: 0 auto;
+	padding: 100px 25px 25px 25px;
+	border: 1px solid rgba(241, 198, 8, 1);
+	border-radius: 8px;
+	text-decoration: none;
+	color: rgba(241, 198, 8, 1);
+	font-size: 4em;
+	font-weight: 700;
+	-webkit-transition: background .6s;
+	transition: background .6s;
+}
+
+a:hover {
+	background: rgba(241, 198, 8, 1);
+	-webkit-transition: background .6s;
+	transition: background .6s;
+	color: #000;
+}
+
+.description {
+	display: block;
+	width: 60%;
+	margin: 0 auto;
+	font-size: 3em;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-align: justify;
+	-webkit-transform: rotateX(30deg) translateZ(-500px);
+		transform: rotateX(30deg) translateZ(50px);
+}
+
+
+
+
 

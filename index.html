@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>On Lock</title>
+	<title>On Lock | Landing</title>
 	<link rel="stylesheet" href="styles/normalize.css" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" />
 	<link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
-	<section id="game_screen">
-		<img id="blue" src="images/blue_crosshairs.png" />
-		<img id="red" src="images/red_crosshairs.png" />
-		<img id="target" src="images/target.png" />
-	</section>
+	<div class="perspective_origin">
+		<section class="perspective">
+			<h1>On Lock | The Rebel Target Practice Simulator</h1>
+			<p>Hey there, fellow Rebel! How can we hope to overthrow the Empire if you can't fire on target?
+				 On Lock is a target practice competition simulator for X-Wing pilots. Grab a friend and use the two control pads to lock your crosshairs on target! The fastest player to lock on wins! Feel free to practice with the keys listed below!
+			</p>
+			<div id="control_emul8rs">
+				<div id="player1">
+					<div id="e" class="button top_button"><p>E</p></div>
+					<div id="s" class="button bottom_buttons"><p>S</p></div>
+					<div id="d" class="button bottom_buttons"><p>D</p></div>
+					<div id="f" class="button bottom_buttons"><p>F</p></div>
+				</div>
+				<div id="player2">
+					<div id="up" class="button top_button"><p>Up</p></div>
+					<div id="left" class="button bottom_buttons"><p>Left</p></div>
+					<div id="down" class="button bottom_buttons"><p>Down</p></div>
+					<div id="right" class="button bottom_buttons"><p>Right</p></div>
+				</div>
+			</div>
+			<a href="game.html">MAY THE FORCE BE WITH YOU</a>
+		</section>
+	</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<!-- 	jQuery --><script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-	<!-- 	Game Script --><script type="text/javascript" src="scripts/index.js">
-	</script>
+	<!-- 	jQuery -->
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous">
+  </script>
+	<!-- 	Landing Script -->
+	<script src="scripts/landing.js"></script>
 </body>
 </html>
