@@ -17,18 +17,36 @@ $(document).ready(function() {
 /*** GAME LOGIC ********************************************************/
 /***********************************************************************/
 
-
-	getRandomGameInit();
-	startGame();
-	console.log('Target: ' + $('#target').position().left + ', ' + $('#target').position().top);
-	if (checkForRedWin()) {
-		clearInterval(checkRedPosition);
-		clearInterval(checkBluePosition);
-	}
-	if (checkForBlueWin()) {
-		clearInterval(checkRedPosition);
-		clearInterval(checkBluePosition);
-	}
+    if ($('window').width() < 1200 || window.innerWidth < 1200) {
+      $('#modal button').click(function() {
+        $('#modal').css('display', 'none');
+        $('#game_screen').css('display', 'block');
+      	getRandomGameInit();
+      	startGame();
+      	if (checkForRedWin()) {
+      		clearInterval(checkRedPosition);
+      		clearInterval(checkBluePosition);
+      	}
+      	if (checkForBlueWin()) {
+      		clearInterval(checkRedPosition);
+      		clearInterval(checkBluePosition);
+    	  }
+      });
+    } else {
+      $('#modal').css('display', 'none');
+      $('#game_screen').css('display', 'block');
+      getRandomGameInit();
+      startGame();
+      console.log('Target: ' + $('#target').position().left + ', ' + $('#target').position().top);
+      if (checkForRedWin()) {
+        clearInterval(checkRedPosition);
+        clearInterval(checkBluePosition);
+      }
+      if (checkForBlueWin()) {
+        clearInterval(checkRedPosition);
+        clearInterval(checkBluePosition);
+      }
+    }
 
 
 
